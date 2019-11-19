@@ -4,7 +4,7 @@ resource "aws_iam_user" "user" {
 }
 
 resource "aws_iam_user_login_profile" "user" {
-  count = var.include_login_profile ? 1 : 0
+  count = var.include_login_profile == "yes" ? 1 : 0
 
   user = aws_iam_user.user.name
   pgp_key = var.user_public_gpg_key
@@ -12,7 +12,7 @@ resource "aws_iam_user_login_profile" "user" {
 }
 
 resource "aws_iam_access_key" "user" {
-  count = var.include_access_key ? 1 : 0
+  count = var.include_access_key == "yes" ? 1 : 0
 
   user = aws_iam_user.user.name
   pgp_key = var.user_public_gpg_key
