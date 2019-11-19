@@ -8,7 +8,13 @@ A Terraform module for managing a AWS IAM user.
 The user deployment has no requirements.
  
 The user deployment consists of:
-* 
+* An IAM user with the supplied name
+* A console login password (optional)
+* An access key (optional)
+* IAM read only permissions
+* Password, access key, signing certificate, SSH and service credential 
+  management permissions
+* Enforcement of MFA for most actions (optional)
 
 Usage
 -----
