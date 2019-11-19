@@ -28,6 +28,8 @@ task :default => 'test:integration'
 namespace :test do
   RSpec::Core::RakeTask.new(:integration => ['terraform:ensure']) do
     ENV['AWS_REGION'] = 'us-east-1'
+    ENV['TF_PLUGIN_CACHE_DIR'] =
+        "#{Paths.project_root_directory}/vendor/terraform/plugins"
   end
 end
 

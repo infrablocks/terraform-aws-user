@@ -9,11 +9,14 @@ module TerraformModule
       @configuration ||= Configuration.new
     end
 
-    def output_for(role, name)
-      RubyTerraform.output(
+    def output_for(role, name, opts = {})
+      params = {
           name: name,
           state: configuration.for(role).state_file,
-          json: true)
+          json: opts[:parse]
+      }
+      value = RubyTerraform.output(params)
+      opts[:parse] ? JSON.parse(value) : value
     end
 
     def provision_for(role, overrides = nil)

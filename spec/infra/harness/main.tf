@@ -8,4 +8,6 @@ data "terraform_remote_state" "prerequisites" {
 
 module "user" {
   source = "../../../../"
+
+  user_name = var.user_name
 }
