@@ -5,3 +5,4 @@ vars:
   region: "%{hiera('region')}"
 
   user_name: "test-%{hiera('deployment_identifier')}"
+  user_public_gpg_key_path: "%{hiera('public_gpg_key_path')}"
