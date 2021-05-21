@@ -7,13 +7,13 @@ output "user_name" {
 }
 
 output "user_password" {
-  value = element(concat(aws_iam_user_login_profile.user.*.encrypted_password, list("")), 0)
+  value = element(concat(aws_iam_user_login_profile.user.*.encrypted_password, [""]), 0)
 }
 
 output "user_access_key_id" {
-  value = element(concat(aws_iam_access_key.user.*.id, list("")), 0)
+  value = element(concat(aws_iam_access_key.user.*.id, [""]), 0)
 }
 
 output "user_secret_access_key" {
-  value = element(concat(aws_iam_access_key.user.*.encrypted_secret, list("")), 0)
+  value = element(concat(aws_iam_access_key.user.*.encrypted_secret, [""]), 0)
 }
