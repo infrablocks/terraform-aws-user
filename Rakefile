@@ -17,7 +17,7 @@ require_relative 'lib/version'
 configuration = Configuration.new
 
 def repo
-  Git.open('.')
+  Git.open(Pathname.new('.'))
 end
 
 def latest_tag
@@ -127,7 +127,7 @@ RakeCircleCI.define_project_tasks(
   t.checkout_keys = []
   t.ssh_keys = [
     {
-      hostname: "github.com",
+      hostname: 'github.com',
       private_key: File.read('config/secrets/ci/ssh.private')
     }
   ]
